@@ -97,18 +97,25 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 1500); 
     });
 
-    // --- Logik für den flüchtenden Nein-Button ---
-    noBtn.addEventListener('mouseover', () => {
+    // --- Logik für den flüchtenden Nein-Button (Laptop & Handy) ---
+    const moveButton = () => {
         const randomX = Math.random() * (window.innerWidth - noBtn.offsetWidth - 100) + 50; 
         const randomY = Math.random() * (window.innerHeight - noBtn.offsetHeight - 100) + 50;
         noBtn.style.position = 'fixed';
         noBtn.style.left = `${randomX}px`;
         noBtn.style.top = `${randomY}px`;
         noBtn.style.transform = 'none';
+    };
+
+    noBtn.addEventListener('mouseover', moveButton);
+    
+    noBtn.addEventListener('touchstart', (e) => {
+        e.preventDefault(); // Verhindert Klick-Meldung auf Mobilgeräten
+        moveButton();
     });
 
     noBtn.addEventListener('click', () => { 
-        alert("Versuch es doch mal mit dem anderen Button! 😉"); 
+        alert("Versuch es doch mal mit dem anderen Button! 😉");
     });
 
     // --- JA-Logik: Finale Seite, Konfetti, Hund & E-Mail Benachrichtigung ---
@@ -117,7 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const overlay = document.querySelector('.text-overlay');
         if (overlay) overlay.style.display = 'none';
 
-        // --- NEU: E-Mail Benachrichtigung via Formspree ---
+        // E-Mail Benachrichtigung via Formspree
         fetch("https://formspree.io/f/xwvnvdpo", {
             method: "POST",
             body: JSON.stringify({
