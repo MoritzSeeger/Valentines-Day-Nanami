@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Für meinen Valentine ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="envelope-wrapper" id="envelopeWrapper">
+        <div class="floating-question-mark">?</div>
+
+        <div class="envelope">
+            <div class="envelope-back"></div>
+            <div class="letter">七海</div>
+            <div class="paper-preview"></div>
+            <div class="flap bottom"></div>
+            <div class="flap top"></div>
+            <div class="wax-seal"></div>
+            <div class="recipient-name">Einladung für Nanami</div>
+        </div>
+        <p class="click-instruction">Klick mich, um zu öffnen!</p>
+    </div>
+
+    <main id="content" class="hidden">
+        <div id="flower-container" class="flower-container"></div>
+        
+        <div class="text-overlay">
+            <h1>Möchtest du mein Valentine sein?</h1>
+            
+            <p class="hint-text">Bevor du ja drückst, klick auf nein</p>
+            
+            <div class="buttons-container">
+                <button id="yesBtn">JA!</button>
+                <button id="noBtn">Nein</button>
+            </div>
+        </div>
+    </main>
+    
+    <div id="dog" class="dog hidden">
+        <img src="shiba-inu.png" alt="Shiba Inu" id="dogImg">
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="script.js" defer></script>
+</body>
+</html>
